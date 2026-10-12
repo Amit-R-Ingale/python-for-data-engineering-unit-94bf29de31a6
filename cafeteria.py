@@ -12,7 +12,7 @@ MENU = [
     ("Chicken Curry", 6.75),
     ("Fish and Chips",  7.50),
     ("Garden Salad", 4.00),
-    ("Apple Pie", 2.25)
+    ("Apple Pie", 2.25),
 ]
 
 def menu_lines():

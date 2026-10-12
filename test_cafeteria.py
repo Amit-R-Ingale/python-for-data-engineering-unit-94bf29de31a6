@@ -55,7 +55,7 @@ class SpecialTests(unittest.TestCase):
         for day in days:
             item, discount = cafeteria.find_special(day)
 
-            self.assertIsNone(item, f"{day} should have a special")
+            self.assertIsNotNone(item, f"{day} should have a special")
 
             self.assertGreater(cafeteria.price_of(item), 0.0)
             self.assertGreater(discount, 0.0)
@@ -92,10 +92,10 @@ class ProgramRunTests(unittest.TestCase):
         self.assertIn("<class 'float'>", out)
         self.assertNotIn("No special today.", out)
 
-    def test_invalid_day_run_says_no_specials(self):
+    def test_invalid_day_run_says_no_special(self):
         result = run_program("Funday")
         self.assertEqual(result.returncode, 0, result.stderr)
-        self.assertIn("No special today.", result.stderr)
+        self.assertIn("No special today.", result.stdout)
         self.assertIn("<class 'float'>", result.stdout)
         self.assertNotIn("Today's special", result.stdout)
 
